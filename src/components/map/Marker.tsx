@@ -28,9 +28,11 @@ function Marker({
   const [isSelected, setIsSelected] = useState<boolean>(false);
 
   function openInfoWindowHandler() {
+    console.log("open info isSelected", isSelected);
     setIsSelected(true);
   }
   function closeInfoWindowHandler() {
+    console.log("close info isSelected", isSelected);
     setIsSelected(false);
   }
 
@@ -44,19 +46,18 @@ function Marker({
   return (
     <>
       {/* need to use "MarkerF" in react 18 or above */}
-      <MarkerF
-        position={{ lat, lng }}
-        //   onClick={() => handleActiveMarkerF(id)}
-        onMouseOver={openInfoWindowHandler}
-      />
+      <MarkerF position={{ lat, lng }} onMouseOver={openInfoWindowHandler} />
+
+      {/* NOTE (1) */}
       {isSelected && (
-        // react strictMode will make the InfoWdindow render twice in develepment mode
-        // need to use the "InfoWindowF" instead
         <InfoWindowF
           position={{ lat, lng }}
-          onCloseClick={closeInfoWindowHandler}
+          // onCloseClick={closeInfoWindowHandler}
         >
-          <div className={styles.inner_info_window}>
+          <div
+            className={styles.inner_info_window}
+            onMouseLeave={closeInfoWindowHandler}
+          >
             <div>{companyName}</div>
             <div>{title}</div>
             <div>{salary !== "0" && `salary: $${salary}`}</div>
@@ -69,3 +70,19 @@ function Marker({
 }
 
 export default memo(Marker);
+
+// ---------- NOTE ------------ //
+/*
+  (1) The old "InfoWindow" has to be replaced with the "InfoWindowF"
+      otherwise, a empty duplicated window will be rendered the same positon
+      of the "InfoWindow"
+
+      Also, "InfoWindowF" has a bug in the "onCloseClick" event!
+      Even though the window will be closed, the callback won't be 
+      trigger in such event! if the callback is not triggered, the 
+      infoWindow is stilled "isSelected", when I hover on the marker again,
+      the window won't be re-rendered
+
+      I have to add the "onMouseLeave" event in the inner_info_window in
+      order to close and re-open the same window properly
+*/
