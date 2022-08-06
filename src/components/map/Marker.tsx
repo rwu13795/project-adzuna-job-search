@@ -1,4 +1,4 @@
-import { InfoWindow, MarkerF } from "@react-google-maps/api";
+import { InfoWindowF, MarkerF } from "@react-google-maps/api";
 import { memo, useState } from "react";
 
 import { useAppDispatch } from "../../redux/hooks";
@@ -49,9 +49,10 @@ function Marker({
         //   onClick={() => handleActiveMarkerF(id)}
         onMouseOver={openInfoWindowHandler}
       />
-      {isSelected ? (
+      {isSelected && (
         // react strictMode will make the InfoWdindow render twice in develepment mode
-        <InfoWindow
+        // need to use the "InfoWindowF" instead
+        <InfoWindowF
           position={{ lat, lng }}
           onCloseClick={closeInfoWindowHandler}
         >
@@ -61,8 +62,8 @@ function Marker({
             <div>{salary !== "0" && `salary: $${salary}`}</div>
             <button onClick={onDetailClickHandler}>details</button>
           </div>
-        </InfoWindow>
-      ) : null}
+        </InfoWindowF>
+      )}
     </>
   );
 }
