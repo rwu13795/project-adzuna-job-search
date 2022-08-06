@@ -44,7 +44,7 @@
   transition: all 0.3s;
   font-size: 11px;
   padding: 2px 12px;
-  border-radius: 2px;
+  border-radius: 4px;
   letter-spacing: 1px;
   color: var(--main-color-700);
 }
@@ -54,4 +54,34 @@
 }
 .error_text {
   color: var(--color-red-400);
+}
+
+@media screen and (max-width: 765px) {
+  .input_field_wrapper {
+    height: 36%;
+  }
+  .input_box {
+    width: min(300px, 60vw);
+    max-width: min(300px, 60vw);
+  }
+  .input_box input {
+    width: calc(100% - 10px);
+    padding: 6px;
+    font-size: 14px;
+  }
+
+  .input_box span {
+    padding: 2px 12px;
+  }
+
+  .input_box input:focus ~ span,
+  .input_box input:not(:placeholder-shown) ~ span {
+    transform: translateX(10px) translateY(-30px);
+    transition: all 0.3s;
+    font-size: 9px;
+    padding: 1px 10px;
+  }
+  .error_text {
+    font-size: 12px;
+  }
 }

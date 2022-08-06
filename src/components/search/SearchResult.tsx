@@ -32,7 +32,7 @@ function SearchResult({ showForm, showFormHandler }: Props): JSX.Element {
 
   function clearResultsHandler() {
     dispatch(clearResults());
-    searchResultTransition(true, false);
+    searchResultTransition(true);
   }
 
   return (

@@ -77,7 +77,7 @@ function SearchForm({ showForm, showFormHandler }: Props): JSX.Element {
 
   useEffect(() => {
     if (loadingStatus === LoadingStatus.succeeded) {
-      searchResultTransition(false, false);
+      searchResultTransition(false);
       dispatch(setLoadingStatus(LoadingStatus.idle));
     }
   }, [loadingStatus, dispatch]);
