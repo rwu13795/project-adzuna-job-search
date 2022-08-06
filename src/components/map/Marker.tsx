@@ -36,7 +36,6 @@ function Marker({
 
   function onDetailClickHandler() {
     // set the job as seleected Job using ID in the store
-
     dispatch(setTargetJobId(id));
     setIsSelected(false);
     dispatch(setOpenModal(true));

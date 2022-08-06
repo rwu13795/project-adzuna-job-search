@@ -50,13 +50,10 @@ function InputField({
 
   function onChangeHandler(e: ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
-    console.log(name, value);
     const hasError = onChangeCheck(name, value, setErrors);
     if (hasError) return;
 
     valueChangeHandler(e);
-
-    // dispatch(clearRequestError(name));
   }
 
   let input_box = styles.input_box;

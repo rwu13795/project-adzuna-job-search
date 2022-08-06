@@ -33,9 +33,6 @@ export const adzunaSearch = createAsyncThunk<
         `/${pageNum}?app_id=${app_id}&app_key=${app_key}&what=${title}&what_and=${city}&where=${zipCode}&distance=${50}`
     );
 
-    console.log("pageNum", pageNum, "distance");
-    console.log(response.data.results);
-
     return response.data.results;
   } catch (err: any) {
     // catch the error sent from the server manually, and put in inside the action.payload
@@ -90,6 +87,6 @@ export function adzunaSearch_rejected(
   state: WritableDraft<MapState>,
   action: PayloadAction<any>
 ) {
-  console.log(action.payload);
+  console.log("Error: ", action.payload);
   state.loadingStatus = LoadingStatus.failed;
 }
