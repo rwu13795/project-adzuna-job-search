@@ -5,7 +5,7 @@ import { AxiosClient, LoadingStatus } from "../../../utils";
 import { MapState, SearchResult } from "../interfaces";
 
 const app_id = process.env.REACT_APP_ADZUNA_APP_ID;
-const app_key = process.env.REACT_APP_ADZUNA_APP_KEYS;
+const app_key = process.env.REACT_APP_ADZUNA_APP_KEY;
 // search/1 -- "1" is the number of the page, each page contains 10 result. useful when using pagination/infinite scroll
 const adzunaApiUrl = `https://api.adzuna.com/v1/api/jobs/us/search`;
 
