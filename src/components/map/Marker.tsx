@@ -27,13 +27,11 @@ function Marker({
 
   const [isSelected, setIsSelected] = useState<boolean>(false);
 
-  function openInfoWindowHandler() {
-    console.log("open info isSelected", isSelected);
-    setIsSelected(false);
-    setIsSelected(true);
+  function toggleInfoWindowHanlder() {
+    setIsSelected((prev) => !prev);
   }
+
   function closeInfoWindowHandler() {
-    console.log("close info isSelected", isSelected);
     setIsSelected(false);
   }
 
@@ -47,7 +45,11 @@ function Marker({
   return (
     <>
       {/* need to use "MarkerF" in react 18 or above */}
-      <MarkerF position={{ lat, lng }} onMouseOver={openInfoWindowHandler}>
+      <MarkerF
+        position={{ lat, lng }}
+        onMouseOver={toggleInfoWindowHanlder}
+        onClick={toggleInfoWindowHanlder}
+      >
         {/* NOTE (1) */}
         {isSelected && (
           <InfoWindowF
