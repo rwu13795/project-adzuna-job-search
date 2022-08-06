@@ -1,4 +1,4 @@
-import { useState, memo } from "react";
+import { memo } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
@@ -84,25 +84,3 @@ function JobModal(): JSX.Element {
 }
 
 export default memo(JobModal);
-
-/**
- * id: string;
-  company: {
-    display_name: string;
-  };
-  description: string;
-  title: string;
-  salary_is_predicted: string;
-  latitude: number;
-  longitude: number;
-  redirect_url: string;
-  category: {
-    label: string;
-    tag: string;
-  };
-  location: {
-    display_name: string;
-  };
-  created: string;
-  contract_time?: string;
- */

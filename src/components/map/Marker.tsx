@@ -29,6 +29,7 @@ function Marker({
 
   function openInfoWindowHandler() {
     console.log("open info isSelected", isSelected);
+    setIsSelected(false);
     setIsSelected(true);
   }
   function closeInfoWindowHandler() {
@@ -46,25 +47,26 @@ function Marker({
   return (
     <>
       {/* need to use "MarkerF" in react 18 or above */}
-      <MarkerF position={{ lat, lng }} onMouseOver={openInfoWindowHandler} />
-
-      {/* NOTE (1) */}
-      {isSelected && (
-        <InfoWindowF
-          position={{ lat, lng }}
-          // onCloseClick={closeInfoWindowHandler}
-        >
-          <div
-            className={styles.inner_info_window}
-            onMouseLeave={closeInfoWindowHandler}
+      <MarkerF position={{ lat, lng }} onMouseOver={openInfoWindowHandler}>
+        {/* NOTE (1) */}
+        {isSelected && (
+          <InfoWindowF
+            position={{ lat, lng }}
+            // "onCloseClick" event not triggering the callback !?
+            // onCloseClick={closeInfoWindowHandler}
           >
-            <div>{companyName}</div>
-            <div>{title}</div>
-            <div>{salary !== "0" && `salary: $${salary}`}</div>
-            <button onClick={onDetailClickHandler}>details</button>
-          </div>
-        </InfoWindowF>
-      )}
+            <div
+              className={styles.inner_info_window}
+              onMouseLeave={closeInfoWindowHandler}
+            >
+              <div>{companyName}</div>
+              <div>{title}</div>
+              <div>{salary !== "0" && `salary: $${salary}`}</div>
+              <button onClick={onDetailClickHandler}>details</button>
+            </div>
+          </InfoWindowF>
+        )}
+      </MarkerF>
     </>
   );
 }
