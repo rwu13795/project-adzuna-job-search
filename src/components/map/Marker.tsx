@@ -46,7 +46,7 @@ function Marker({
     <>
       {/* need to use "MarkerF" in react 18 or above */}
       <MarkerF
-        position={{ lat, lng }}
+        position={{ lat: lat * 1, lng: lng * 1 }}
         onMouseOver={toggleInfoWindowHanlder}
         onClick={toggleInfoWindowHanlder}
       >
