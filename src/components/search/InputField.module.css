@@ -1,0 +1,57 @@
+.input_field_wrapper {
+  height: 80%;
+}
+
+.input_box {
+  position: relative;
+  width: 300px;
+  max-width: 300px;
+  border: solid var(--color-green-600) 2px;
+  border-radius: 6px;
+}
+.input_box input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  background-color: transparent;
+}
+
+.input_box span {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 12px;
+  pointer-events: none;
+  font-size: 20px;
+  color: gray;
+  transition: all 0.3s;
+}
+/* use an empty placeholder to detect if input is empty */
+.input_box input:focus:invalid ~ span,
+.input_box input:not(:placeholder-shown):invalid ~ span {
+  background-color: var(--color-red-200);
+}
+.input_box input:focus ~ span,
+.input_box input:not(:placeholder-shown) ~ span {
+  background-color: var(--color-green-400);
+}
+
+.input_box input:focus ~ span,
+.input_box input:not(:placeholder-shown) ~ span {
+  transform: translateX(10px) translateY(-42px);
+  transition: all 0.3s;
+  font-size: 11px;
+  padding: 2px 12px;
+  border-radius: 2px;
+  letter-spacing: 1px;
+  color: var(--main-color-700);
+}
+
+.error_box {
+  border-color: var(--color-red-400);
+}
+.error_text {
+  color: var(--color-red-400);
+}

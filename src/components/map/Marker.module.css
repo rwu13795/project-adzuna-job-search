@@ -1,0 +1,15 @@
+.inner_info_window {
+  min-width: 140px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+}
+
+.inner_info_window button {
+  width: min(100px, 80%);
+  border-radius: 6px;
+  background-color: var(--color-green-400);
+}

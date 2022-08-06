@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import JobModal from "./components/search/JobModal";
+
+import Map from "./components/map/Map";
+import Search from "./components/search/Search";
+import logo from "./images/adzuna_logo.svg";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <main className="main_container">
+        <div className="title">
+          <img src={logo} alt="adzuna" />
+          <div className="title_text">Jobs Search</div>
+        </div>
+
+        <Search />
+        <Map />
+        <JobModal />
+      </main>
     </div>
   );
 }

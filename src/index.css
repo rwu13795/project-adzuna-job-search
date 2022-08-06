@@ -1,13 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Quantico&display=swap");
+
+:root {
+  --color-green-100: #c5f1e0;
+  --color-green-400: #8cebc5;
+  --color-green-500: #6fe6b6;
+  --color-green-600: #2cb67f;
+  --color-green-700: #068b56;
+
+  --color-red-200: #dda3a6;
+  --color-red-400: #db4d54;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Quantico", sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+div {
+  font-family: "Quantico", sans-serif;
+}
+
+button {
+  font-family: "Quantico", sans-serif;
 }
