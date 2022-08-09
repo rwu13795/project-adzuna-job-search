@@ -27,12 +27,7 @@ import InputField from "./InputField";
 
 import styles from "./SearchForm.module.css";
 
-interface Props {
-  showForm: boolean;
-  showFormHandler: (show: boolean) => void;
-}
-
-function SearchForm({ showForm, showFormHandler }: Props): JSX.Element {
+function SearchForm(): JSX.Element {
   const dispatch = useAppDispatch();
 
   const loadingStatus = useAppSelector(selectLoadingStatus);

@@ -12,12 +12,7 @@ import { searchResultTransition } from "../../utils";
 
 import styles from "./SearchResult.module.css";
 
-interface Props {
-  showForm: boolean;
-  showFormHandler: (show: boolean) => void;
-}
-
-function SearchResult({ showForm, showFormHandler }: Props): JSX.Element {
+function SearchResult(): JSX.Element {
   const dispatch = useAppDispatch();
 
   const hasMore = useAppSelector(selectHasMore);
